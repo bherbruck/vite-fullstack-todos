@@ -1,0 +1,10 @@
+{
+  "name": "@todos/events",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "socket.io": "^4.5.1"
+  }
+}
