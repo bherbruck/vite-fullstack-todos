@@ -22,7 +22,7 @@ export const Todo: Component<TodoProps> = ({
       onChange={() => onChange({ ...todo, isDone: !todo.isDone })}
     />
     <input
-      class="flex-1 text-lg input input-ghost"
+      class="input-lg input input-ghost min-w-0 flex-1 text-ellipsis px-2"
       value={todo.text}
       disabled={todo.isDone}
       onChange={(e) => onChange({ ...todo, text: e.currentTarget.value })}

@@ -13,7 +13,7 @@ export const NewTodo: Component<NewTodoProps> = ({ onAdd = () => {} }) => {
     <div class="input-group">
       <input
         placeholder="New Todo"
-        class="input bg-base-200 input-lg h-16 flex-1"
+        class="input bg-base-200 input-lg h-16 min-w-0 flex-1 px-2"
         value={text()}
         onInput={(e) => setText(e.currentTarget.value)}
       />
