@@ -24,7 +24,7 @@ const App: Component = () => {
   const handleTodoDelete = (todo: TodoType) => socket.emit('removeTodo', todo)
 
   return (
-    <div class="ustify-center flex  justify-center">
+    <div class="flex justify-center">
       <div class="flex w-full max-w-xl flex-col gap-2 p-2">
         <NewTodo onAdd={handleTodoAdd} />
         <For each={todos()}>
