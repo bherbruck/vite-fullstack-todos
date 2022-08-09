@@ -3,6 +3,7 @@ import { createServer } from 'node:http'
 import { Server } from 'socket.io'
 import { NODE_ENV, PORT, STATIC_PATH } from './config'
 import type { ClientEvents, ServerEvents, Todo } from '@todos/events'
+import * as cors from 'cors'
 
 const app = express()
 const server = createServer(app)
@@ -12,9 +13,13 @@ const io = new Server<ClientEvents, ServerEvents>(server, {
   },
 })
 
+app.use(cors())
+
 let db: Todo[] = []
 
 io.on('connection', (socket) => {
+  console.log(`Client connected: ${socket.id}`)
+
   socket.emit('todos', db)
 
   socket.on('todos', (todos) => {
@@ -38,7 +43,7 @@ io.on('connection', (socket) => {
   })
 
   socket.on('disconnect', () => {
-    console.log(`${socket.id} disconnected`)
+    console.log(`Client disconnected: ${socket.id}`)
   })
 })
 

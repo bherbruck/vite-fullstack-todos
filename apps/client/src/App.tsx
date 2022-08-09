@@ -12,7 +12,7 @@ import type {
 const App: Component = () => {
   const [todos, setTodos] = createSignal<TodoType[]>([])
 
-  const socket: Socket<ServerEvents, ClientEvents> = io('http://localhost:3000')
+  const socket: Socket<ServerEvents, ClientEvents> = io()
 
   socket.on('todos', (newTodos: TodoType[]) => setTodos(newTodos))
 
